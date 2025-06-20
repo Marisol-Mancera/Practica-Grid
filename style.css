@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: burlywood;
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.contenedor {
+    max-width: 1000px;
+    margin: 20px auto;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas: 
+    "nav nav nav"
+    "contenido contenido sidebar"
+    "bloque1 bloque1 bloque2"
+    "footer footer footer";
+}
+
+nav {
+    background-color: antiquewhite;
+    color:brown;
+    grid-area: nav;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.contenido {
+    background-color: antiquewhite;
+    color: brown;
+    padding: 20px;
+    grid-area: contenido;
+    border-radius: 10px;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: antiquewhite;
+    color: brown;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.bloque {
+    color: brown;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#bloque1 {
+    grid-area: bloque1;
+    background-color: antiquewhite;
+}
+
+#bloque2 {
+    grid-area: bloque2;
+    background-color: antiquewhite;
+}
+
+footer {
+    background-color: antiquewhite;
+    color: brown;
+    grid-area: footer;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+footer p {
+    margin: 20px;
+}
+
+
+#cambia-color {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  width: auto;
+  max-width: 90%;
+  margin: 1rem auto;
+}
+
+#cambia-color:hover {
+  background-color: #0056b3;
+}
+
+.button-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: brown
+}
+
+@media screen and (max-width: 768px) {
+    .contenedor{
+        margin: 20px;
+        grid-template-areas: 
+        "nav nav nav"
+        "contenido contenido contenido"
+        "sidebar sidebar sidebar"
+        "bloque1 bloque1 bloque1"
+        "bloque2 bloque2 bloque2"
+        "footer footer footer";
+    }
+
+    nav {
+        position: relative; /* Asegura que el menú se posicione correctamente */
+    }
+
+    .button-toggle{
+        display: block;
+    }
+
+     .menu {
+        display: none;
+        flex-direction: column;
+        background: brown;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        width: 95%;
+        margin: 0 auto;
+        text-align: center;
+        padding: 10px 0;
+        border-radius: 5px;
+        z-index: 100; /* Asegura que el menú esté por encima de otro contenido */
+    }
+
+    .menu a {
+        display: block;
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+    }
+
+    .menu.open {
+        display: flex;
+    }
+}
